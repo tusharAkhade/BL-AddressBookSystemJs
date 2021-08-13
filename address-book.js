@@ -1,4 +1,4 @@
-console.log("<------------------Welcome to the Address Book System------------------>");
+console.log("<------------------Welcome to the Address Book System------------------>\n");
 
 class Contact {
 
@@ -112,10 +112,13 @@ class Contact {
 
 //UC1 : Creating New Contact Object
 let contact = new Contact("Abc", "Xyz", "1/2 abc Colony", "Mumbai", "Maharashtra", "123456", "91 9876543211", "abc@gmail.com");
+console.log("Creating new contact :- ")
 console.log(contact.toString());
+console.log("*******************************************************************************************************************************************************\n\n")
 
 //UC2 : Checking For Invalid Fields
 {
+    console.log("Checking invalid Fields :-")
     try {
     contact.firstName = "Jo";
     } catch (error) {
@@ -158,8 +161,10 @@ console.log(contact.toString());
     }
     console.log("\nContact After Setting Invalid Fields : \n" + contact.toString());
 }
+console.log("*******************************************************************************************************************************************************\n\n")
 
 //UC3 : Create an Address Book Array and Add New Contacts to it.
+console.log("Creating address book array and adding new contacts :-")
 let addressBookArray = new Array();
 let contact1=new Contact("Mark","Smith","Borivali",'Mumbai','Maha','125412',"99 7854123233",'mark@gmail.com');
 addressBookArray.push(contact1)
@@ -167,4 +172,17 @@ let contact2=new Contact("Gary","Lus","Sitaburdi",'Nagpur','Maha','441904',"91 7
 addressBookArray.push(contact2)
 console.log("ADDRESS BOOK ARRAY :");
 addressBookArray.forEach(contact => console.log(contact.toString()));
+console.log("*******************************************************************************************************************************************************\n\n")
 
+//UC4 : Find and Edit Existing Contact using their Name
+let findName = "Gary"
+contact2 = addressBookArray.find(contact => contact._firstName == findName)
+if(contact2 != undefined) {
+    contact2.phoneNumber = "12 9898565653"
+    contact2.address = "1/2 abc society"
+    contact2.email = "garylus@gmail.com"
+} else {
+    console.log(`${findName} not found`)
+}
+console.log("After editing existing contact : ")
+console.log(addressBookArray)
