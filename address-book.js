@@ -244,3 +244,16 @@ console.log("*******************************************************************
     addressBookArray.filter(contact => contact.state == stateName).forEach(contact => console.log(contact.toString()))    
 }
 console.log("*******************************************************************************************************************************************************\n\n")
+
+//UC9: View persons by city or state name
+{
+    console.log("View contacts by city name :-")
+    let cityName = "Mumbai"
+    console.log(addressBookArray.filter(contact => contact.city == cityName).map(contact => contact.firstName))
+    console.log("View contacts by state name :-")
+    let stateName = "Maharashtra"
+    console.log(addressBookArray.filter(contact => contact.state == stateName).map(contact => contact.firstName))
+}
+console.log("*******************************************************************************************************************************************************\n\n")
+
+
