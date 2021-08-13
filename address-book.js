@@ -256,4 +256,13 @@ console.log("*******************************************************************
 }
 console.log("*******************************************************************************************************************************************************\n\n")
 
+//UC10: Get contacts count by city or state name
+{
+    console.log("Contacts count by city name :-")
+    let cityName = "Mumbai"
+    console.log(addressBookArray.filter(contact => contact.city == cityName).reduce((count, contact) => contact != undefined ? ++count : count, 0))
+    console.log("Contacts count by state name :-")
+    let stateName = "Maharashtra"
+    console.log(addressBookArray.filter(contact => contact.state == stateName).reduce((count, contact) => contact != undefined ? ++count : count, 0))
+}
 
