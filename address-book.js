@@ -212,4 +212,24 @@ let totalNumberOfContacts = addressBookArray.reduce(numberOfContacts, 0)
 console.log("Total Number of Contacts in the Address Book Array : " + totalNumberOfContacts);
 console.log("*******************************************************************************************************************************************************\n\n")
 
+//UC7 : Ensure No Duplicate entries of same Contact present in address book
+console.log("Ensures no duplicate entry present in address book :- ")
+let newContact=new Contact("Mark","Smith","Borivali",'Mumbai','Maha','125412',"99 7854123233",'mark@gmail.com');
+try {
+    addContact(newContact);
+} catch (error) {
+    console.error(error);
+}
+function isExists(newContact) {
+    let foundContact = addressBookArray.find(contact => contact.firstName == newContact.firstName && contact.lastName == newContact.lastName);
+    if (foundContact != undefined) return true;
+    else return false;
+}
+function addContact(contactToAdd) {
+    let alreadyExists = isExists(contactToAdd);
+    if (!alreadyExists) {
+        addressBookArray.push(contactToAdd);        
+    } else throw "Contact : " + contactToAdd.firstName + " " + contactToAdd.lastName + " is already present in the Address Book Array";   
+}
+console.log("*******************************************************************************************************************************************************\n\n")
 
