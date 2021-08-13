@@ -175,14 +175,32 @@ addressBookArray.forEach(contact => console.log(contact.toString()));
 console.log("*******************************************************************************************************************************************************\n\n")
 
 //UC4 : Find and Edit Existing Contact using their Name
-let findName = "Gary"
-contact2 = addressBookArray.find(contact => contact._firstName == findName)
-if(contact2 != undefined) {
-    contact2.phoneNumber = "12 9898565653"
-    contact2.address = "1/2 abc society"
-    contact2.email = "garylus@gmail.com"
-} else {
-    console.log(`${findName} not found`)
+{
+    let findName = "Gary"
+    contact2 = addressBookArray.find(contact => contact._firstName == findName)
+    if (contact2 != undefined) {
+        contact2.phoneNumber = "12 9898565653"
+        contact2.address = "1/2 abc society"
+        contact2.email = "garylus@gmail.com"
+    } else {
+        console.log(`${findName} not found`)
+    }
+    console.log("After editing existing contact : ")
+    console.log(addressBookArray)
+    console.log("*******************************************************************************************************************************************************\n\n")
 }
-console.log("After editing existing contact : ")
-console.log(addressBookArray)
+
+//UC5: Find and Delete contact from address book
+{
+    let findName = "Gary"
+    let index = addressBookArray.findIndex(contact => contact._firstName === findName)
+    if (index != -1) {
+        addressBookArray.splice(index, 1)
+    } else {
+        console.log(`${findName} not found`)
+    }
+    console.log("After deleting contact from address book : ")
+    console.log(addressBookArray)
+    console.log("*******************************************************************************************************************************************************\n\n")
+}
+
