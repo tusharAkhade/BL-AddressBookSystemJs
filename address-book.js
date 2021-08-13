@@ -166,9 +166,9 @@ console.log("*******************************************************************
 //UC3 : Create an Address Book Array and Add New Contacts to it.
 console.log("Creating address book array and adding new contacts :-")
 let addressBookArray = new Array();
-let contact1=new Contact("Mark","Smith","Borivali",'Mumbai','Maha','125412',"99 7854123233",'mark@gmail.com');
+let contact1=new Contact("Mark","Smith","Borivali",'Mumbai','Maharashtra','125412',"99 7854123233",'mark@gmail.com');
 addressBookArray.push(contact1)
-let contact2=new Contact("Gary","Lus","Sitaburdi",'Nagpur','Maha','441904',"91 7857723233",'gary@gmail.com');
+let contact2=new Contact("Gary","Lus","Sitaburdi",'Nagpur','Maharashtra','441904',"91 7857723233",'gary@gmail.com');
 addressBookArray.push(contact2)
 console.log("ADDRESS BOOK ARRAY :");
 addressBookArray.forEach(contact => console.log(contact.toString()));
@@ -214,7 +214,7 @@ console.log("*******************************************************************
 
 //UC7 : Ensure No Duplicate entries of same Contact present in address book
 console.log("Ensures no duplicate entry present in address book :- ")
-let newContact=new Contact("Mark","Smith","Borivali",'Mumbai','Maha','125412',"99 7854123233",'mark@gmail.com');
+let newContact=new Contact("Mark","Smith","Borivali",'Mumbai','Maharashtra','125412',"99 7854123233",'mark@gmail.com');
 try {
     addContact(newContact);
 } catch (error) {
@@ -233,3 +233,14 @@ function addContact(contactToAdd) {
 }
 console.log("*******************************************************************************************************************************************************\n\n")
 
+
+//UC8: Search the person/contact by state or by city
+{
+    console.log("Search contact by city name :-")
+    let cityName = "Mumbai"
+    addressBookArray.filter(contact => contact.city == cityName).forEach(contact => console.log(contact.toString()))
+    console.log("Search contact by state name :-")
+    let stateName = "Maharashtra"
+    addressBookArray.filter(contact => contact.state == stateName).forEach(contact => console.log(contact.toString()))    
+}
+console.log("*******************************************************************************************************************************************************\n\n")
