@@ -265,4 +265,12 @@ console.log("*******************************************************************
     let stateName = "Maharashtra"
     console.log(addressBookArray.filter(contact => contact.state == stateName).reduce((count, contact) => contact != undefined ? ++count : count, 0))
 }
+console.log("*******************************************************************************************************************************************************\n\n")
+
+//UC11 : Sort contacts by their name
+{
+    console.log("Sorted Addressbook")
+    console.log(addressBookArray.sort((a,b) => a.firstName.localeCompare(b.firstName)))
+}
+console.log("*******************************************************************************************************************************************************\n\n")
 
