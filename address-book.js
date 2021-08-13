@@ -85,7 +85,7 @@ class Contact {
         return this._phoneNumber;
     }
     set phoneNumber(phoneNumber) {
-        const PHONE_NUMBER_REGEX = RegExp("^[1-9]{1}[0-9]{9}$");
+        const PHONE_NUMBER_REGEX = RegExp("^[1-9]{2}\\s{0,1}[1-9]{1}[0-9]{9}$");
         if (PHONE_NUMBER_REGEX.test(phoneNumber)) {
             this._phoneNumber = phoneNumber;
         }
@@ -111,7 +111,7 @@ class Contact {
 }
 
 //UC1 : Creating New Contact Object
-let contact = new Contact("Abc", "Xyz", "1/2 abc Colony", "Mumbai", "Maharashtra", 123456, 9876543211, "abc@gmail.com");
+let contact = new Contact("Abc", "Xyz", "1/2 abc Colony", "Mumbai", "Maharashtra", "123456", "91 9876543211", "abc@gmail.com");
 console.log(contact.toString());
 
 //UC2 : Checking For Invalid Fields
@@ -142,12 +142,12 @@ console.log(contact.toString());
         console.error(error);
     }
     try {
-        contact.zip = 3214560;
+        contact.zip = "3214560";
     } catch (error) {
         console.error(error);
     }
     try {
-        contact.phoneNumber = 989889899899;
+        contact.phoneNumber = "989889899899";
     } catch (error) {
         console.error(error);
     }
@@ -158,3 +158,13 @@ console.log(contact.toString());
     }
     console.log("\nContact After Setting Invalid Fields : \n" + contact.toString());
 }
+
+//UC3 : Create an Address Book Array and Add New Contacts to it.
+let addressBookArray = new Array();
+let contact1=new Contact("Mark","Smith","Borivali",'Mumbai','Maha','125412',"99 7854123233",'mark@gmail.com');
+addressBookArray.push(contact1)
+let contact2=new Contact("Gary","Lus","Sitaburdi",'Nagpur','Maha','441904',"91 7857723233",'gary@gmail.com');
+addressBookArray.push(contact2)
+console.log("ADDRESS BOOK ARRAY :");
+addressBookArray.forEach(contact => console.log(contact.toString()));
+
